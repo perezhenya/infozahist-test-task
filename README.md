@@ -73,8 +73,8 @@ I suggest you use https://www.npmjs.com/package/axios as your http library.
 
 You might want to use Postman or Insomnia http clients to see how those apis work
 
-**Table should be paginated, and you should be able to search for all columns at the same time.
+**Table should be paginated, and you should be able to search for all columns at the same time.**
 
-**It should be possible to change values in table, by using put request, response will be new value for that Person.
-
-**To start a server you will need to run "npm install" and "npm start" in root folder of this project
+**It should be possible to change values in table, by using put request, response will be new value for that Person.**
+  
+**To start a server you will need to run "npm install" and "npm start" in root folder of this project**
