@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const data = require('../data/generateList')(100000)
+const data = require('../data/generateList')(10)
 /* GET home page. */
 
 const filterResults = (query) => {
@@ -45,5 +45,13 @@ router.get('/', function ({
     count: result.length
   })
 });
+router.put('/update/:id', function (req, res, next) {
+  data[req.params.id - 1] = {
+    id: +req.params.id,
+    ...req.body
+  }
+  res.status(200);
+  res.send(data[req.params.id - 1]);
+})
 
 module.exports = router;
