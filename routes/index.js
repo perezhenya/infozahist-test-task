@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const data = require('../data/generateList')(10)
+const data = require('../data/generateList')(10000)
 /* GET home page. */
 
 const filterResults = (query) => {
@@ -29,11 +29,11 @@ router.get('/', function ({
     email,
     phone
   });
-  const funds = parseInt(query.funds)
+  const funds = parseInt(query.funds) || undefined;
   if (funds > 0) {
     result = result.filter((el) => parseInt(el.funds) > funds)
   } else {
-    result = (funds != 0 || funds == undefined) ? result.filter((el) => parseInt(el.funds) < Math.abs(funds)) : result
+    result = (funds != 0 && funds !== undefined) ? result.filter((el) => parseInt(el.funds) < Math.abs(funds)) : result
   }
   const {
     offset,
