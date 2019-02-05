@@ -35,11 +35,13 @@ router.get('/', function ({
   } else {
     result = (funds != 0 && funds !== undefined) ? result.filter((el) => parseInt(el.funds) < Math.abs(funds)) : result
   }
-  const {
+  let {
     offset,
     limit
   } = query;
-  resultData = result.slice(offset, offset + limit);
+  offset = offset || 0;
+  limit = limit || 100;
+  resultData = result.slice(offset, offset + limit );
   res.json({
     data: resultData,
     count: result.length
