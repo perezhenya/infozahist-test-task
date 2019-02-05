@@ -6,6 +6,7 @@ const data = require('../data/generateList')(10000)
 const filterResults = (query) => {
   let result = data;
   Object.keys(query).forEach((key) => {
+    query[key] = query[key] || '';
     tempResult = result.filter((el) => {
       return el[key].includes(query[key])
     })
@@ -17,7 +18,7 @@ router.get('/', function ({
     query
   },
   res, next) {
-  const {
+  let {
     name,
     city,
     email,
