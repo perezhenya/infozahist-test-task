@@ -40,8 +40,8 @@ router.get('/', function ({
     offset,
     limit
   } = query;
-  offset = offset || 0;
-  limit = limit || 100;
+  offset = +offset || 0;
+  limit = +limit || 100;
   resultData = result.slice(offset, offset + limit );
   res.json({
     data: resultData,
