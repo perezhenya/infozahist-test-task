@@ -1,15 +1,14 @@
 **IzTest**
   
+Задача состоит в создании таблицы, которое отображает данные предоставленые апишкой сервера.
 
-You are required to create a table that will display data provided by api.
+Данные из апи предоставляются в формате JSON.
 
-Api data served as JSON.
+Общая структура запроса : {
 
-Structure is: {
+data : массив Person,
 
-data : array of Person,
-
-count: amount of hits with your search
+count: количество ответов на запрос
 
 }
 
@@ -29,7 +28,7 @@ phone: string
 
 }
 
-Api has following query options :
+Апи поддерживает следующие пути запросов :
 
   
 
@@ -47,7 +46,7 @@ city: string,
 
 email: string,
 
-funds: string (if 100 will return every hit > 100, if negative < 100),
+funds: int as string (Например если 100, то покажет результаты где funds > 100, если отрицательное число то меньше),
 
 phone: string
 
@@ -69,12 +68,12 @@ phone: string
 
   
 
-I suggest you use https://www.npmjs.com/package/axios as your http library.
+Советую использовать https://www.npmjs.com/package/axios как библиотеку для хттп запросов.
 
-You might want to use Postman or Insomnia http clients to see how those apis work
+Вы можете использовать Postman или Insomnia для проверки как работает апи.
 
-**Table should be paginated, and you should be able to search for all columns at the same time.**
+**Таблица должна быть пагинированой, должна быть возможность одновременно искать по все полям. Воспринимайте это как фильтры**
 
-**It should be possible to change values in table, by using put request, response will be new value for that Person.**
+**Должна быть возможность изменить данные Person, в ответе возвращается новый сохраненный пользователь**
   
-**To start a server you will need to run "npm install" and "npm start" in root folder of this project**
+**Чтобы запустить сервер необходимо ввести команды "npm install" и "npm start" в корневом каталоге проекта**
